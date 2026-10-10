@@ -71,6 +71,30 @@ output : 50-200 = -150. Opencv cannot handle negative values, so output will be 
 It is useful for detecting differences or changes between images.
 """
 
+# Multiplication of images - multiply two images pixel by pixel
+#Typical use: Masking, blending, intensity scaling
+
+result = cv2.multiply(image1, image2)
+#result = cv2.multiply(image1, 1)
+#result = cv2.multiply(image1, 0.5)
+cv2.imshow('Multiply Image', result)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+#Division of Images - result = cv2.divide(image1, image2)
+#Typical use: Normalization, illumination correction
+
+result = cv2.divide(image1, image2)
+cv2.imshow('Division Image', result)
+#result = cv2.divide(image1, 2)
+#result = cv2.divide(image1, 0.5)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
 ##### Image Resizing
 img = cv2.imread("Lesson 2/images/dump truck.jpg",1)
 cv2.imshow("Original Image", image1)
@@ -82,7 +106,10 @@ cv2.imshow("reducedImage", resized)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
+
+
 ##### Erosion of an image, corners are trimmed in erosion
+#Erosion → shrinks foreground objects and can remove small bright details/noise.
 import cv2
 import numpy as np
   
@@ -108,6 +135,7 @@ Larger kernel → generally stronger erosion.
 Erosion → shrinks foreground objects and can remove small bright details/noise.
 """
 
+#-----------------------------------------------------------------------------------------------------
 
 ##### Bluring of an image
 """
@@ -165,12 +193,12 @@ It considers both the spatial distance between pixels and their color/intensity 
 bilateral = cv2.bilateralFilter(image, 9, 75, 75)
 image → input image
 9 → neighborhood diameter
-75 → sigmaColor
-75 → sigmaSpace
+75 → sigmaColor ; sigmaColor → How different can the colors be?
+75 → sigmaSpace ; sigmaSpace → How far away can the pixels be?
 Useful for noise reduction while preserving edges.
 Generally more computationally expensive than Gaussian or median filtering.
 """
-
+# -----------------------------------------------------------------------------------------------------------------
 
 ##### Bordering an image
 #cv2.copyMakeBorder(image, top, bottom, left, right, borderType, colorValue)
@@ -179,8 +207,9 @@ Generally more computationally expensive than Gaussian or median filtering.
 import cv2
 
 img = cv2.imread("Lesson 2/images/excavator.jpg")
+resized = cv2.resize(img, (250, 250))
 #borderedImage = cv2.copyMakeBorder(img, 10, 100, 20, 10, cv2.BORDER_CONSTANT, value = (255,0,0)) blue border because BGR
-borderedImage = cv2.copyMakeBorder(img, 10, 10, 10, 10, cv2.BORDER_CONSTANT, value = 1) #black border coz BGR all 3 colors have value 1
+borderedImage = cv2.copyMakeBorder(resized, 10, 10, 10, 10, cv2.BORDER_CONSTANT, value = 1) #black border coz BGR all 3 colors have value 1
 #cv2.namedWindow("Bordered Image", cv2.WINDOW_NORMAL)
 #cv2.resizeWindow("Bordered Image", 800, 600)
 # use the above 2 lines if your output window is bigger than screen and you want to see the bottom border
@@ -191,11 +220,12 @@ cv2.destroyAllWindows()
 # Reflective Border around an image
 import cv2
 img = cv2.imread("Lesson 2/images/excavator.jpg")
+resized = cv2.resize(img, (250, 250))
 #Important - For cv2.BORDER_REFLECT, you do not need to provide value because OpenCV 
 #            creates the border by reflecting the image pixels.
-borderedImage = cv2.copyMakeBorder(img, 10, 10, 100, 10, cv2.BORDER_REFLECT)
+borderedImage = cv2.copyMakeBorder(resized, 50, 50, 50, 50, cv2.BORDER_REFLECT)
 #cv2.namedWindow("Bordered Image", cv2.WINDOW_NORMAL)
 #cv2.resizeWindow("Bordered Image", 800, 600)
-cv2.imshow("Bordered Image", borderedImage)
+cv2.imshow("Reflective Border", borderedImage)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
