@@ -94,6 +94,9 @@ img = cv2.imread('Lesson 3/images/pika.png')
 # We are using the Canny Edge Detection Algorithm here
 # No need to dive deep into explanation over here
 #100 is lower threshold, 200 is upper threshold - The two numbers control how sensitive the edge detection is.
+#Upper threshold: An edge with a gradient above this value is considered a strong edge.
+#Lower threshold: An edge with a gradient below this value is rejected. 
+# An edge between the two thresholds is kept only if it connects to a strong edge.
 edges = cv2.Canny(img, 100,200)
 cv2.imshow("Edge Detection", edges)
 cv2.imwrite('Lesson 3/images/result.jpg', edges)
