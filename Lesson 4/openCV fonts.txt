@@ -15,3 +15,9 @@ cv2.FONT_HERSHEY_SCRIPT_COMPLEX
 Bonus: To Make the text italic Add cv2.FONT_ITALIC using the bitwise OR operator (|):
 Example - 
 font = cv2.FONT_HERSHEY_COMPLEX_SMALL|cv2.FONT_ITALIC
+
+
+Line type	Description
+cv2.LINE_4	4-connected line drawing
+cv2.LINE_8	8-connected line drawing
+cv2.LINE_AA	Anti-aliased (smooth edges)

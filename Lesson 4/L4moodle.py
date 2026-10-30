@@ -51,7 +51,7 @@ cv2.destroyAllWindows()
 import cv2
 image = cv2.imread("Lesson 4/images/pika.png", 0)
 start_point = (100, 50)
-end_point = (125, 80)
+end_point = (190, 260)
 color = (0, 0, 0)
 thickness = -1
 image = cv2.rectangle(image, start_point, end_point, color, thickness)
