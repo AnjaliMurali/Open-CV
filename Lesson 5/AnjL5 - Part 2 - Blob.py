@@ -42,10 +42,12 @@ blobs = cv2.drawKeypoints(image, keypoints, blank, (0, 0, 255), cv2.DRAW_MATCHES
 # cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS - the circles reflect their detected sizes.
 #cv2.DRAW_MATCHES_FLAGS_DEFAULT - the keypoints are drawn using simpler markers.
 
+"""
+Make lr do it themselves in class: 
 number_of_blobs = len(keypoints)
 text = "Number of Circular Blobs: " + str(len(keypoints))
 cv2.putText(blobs, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 100, 255), 2)
-
+"""
 # Show blobs
 cv2.imshow("Filtering Circular Blobs Only", blobs)
 cv2.waitKey(0)

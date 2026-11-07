@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # Read image in grayscale for blob detection
-imageOG = cv2.imread('Lesson 5/sqaure blog.jpg', 0)
-image = cv2.imread('Lesson 5/sqaure blog.jpg', 0)
+imageOG = cv2.imread('Lesson 5/square blob.jpg', 0)
+image = cv2.imread('Lesson 5/square blob.jpg', 0)
 
 if image is None:
     print("Image not found. Check the file path.")
