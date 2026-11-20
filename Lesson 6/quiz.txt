@@ -1,0 +1,44 @@
+Python and OpenCV quiz
+5/5 answered
+
+1. Which function is used to open an image using Pillow?
+cv2.imread()
+Image.open()
+Image.resize()
+
+Correct - Image.open() opens an image using the Pillow library.
+
+
+2. What does img.size return?
+(Height, Width)
+(Width, Height)
+(Width, Height, Channels)
+
+Correct answer: (Width, Height)-Pillow returns image dimensions as (Width, Height).
+
+
+
+3. What does the // operator do?
+Normal division
+Multiplication
+Floor division
+
+Correct-Floor division divides and rounds down to the nearest integer.
+
+
+
+4. What does video.write() do?
+Creates an image
+Adds an image as a video frame
+Deletes a video
+
+Correct-video.write() adds the supplied image to the video.
+
+
+
+5. Why do we use video.release()?
+To close and finalize the video file
+To resize the video
+To open the video
+
+Correct-It releases the VideoWriter and finalizes the output video.
